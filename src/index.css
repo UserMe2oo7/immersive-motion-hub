@@ -73,7 +73,7 @@
 
 @layer components {
   .section-transition {
-    @apply min-h-screen flex flex-col justify-center items-center relative overflow-hidden;
+    @apply min-h-screen flex flex-col justify-center items-center relative overflow-hidden py-20;
   }
 
   .gradient-bg {
@@ -143,6 +143,10 @@
   .animation-delay-800 {
     animation-delay: 0.8s;
   }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
 }
 
 /* Particle system styles */
@@ -184,6 +188,20 @@
   }
   
   .section-transition {
-    @apply px-4;
+    @apply px-4 py-16;
   }
+}
+
+/* Keyframes for animations */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
 }

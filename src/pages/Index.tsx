@@ -6,7 +6,6 @@ import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import SkillsSection from '@/components/SkillsSection';
 import ResumeSection from '@/components/ResumeSection';
-import ArticlesSection from '@/components/ArticlesSection';
 import ProfilesSection from '@/components/ProfilesSection';
 import ContactSection from '@/components/ContactSection';
 
@@ -16,13 +15,12 @@ const Index = () => {
       <ParticleBackground />
       <Navigation />
       
-      <main>
+      <main className="space-y-32">
         <HeroSection />
         <AboutSection />
         <ProjectsSection />
         <SkillsSection />
         <ResumeSection />
-        <ArticlesSection />
         <ProfilesSection />
         <ContactSection />
       </main>
