@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { ChevronDown, Code, Palette, Zap } from 'lucide-react';
+import { ChevronDown, Code, Palette, Zap, Cpu, Globe, Rocket, Database, Wifi, Monitor, Smartphone, Cloud } from 'lucide-react';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -34,8 +34,66 @@ const HeroSection = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Left side floating icons
+  const leftSideIcons = [
+    { icon: Cpu, delay: '0s', top: '15%', left: '5%' },
+    { icon: Database, delay: '1s', top: '35%', left: '8%' },
+    { icon: Globe, delay: '2s', top: '55%', left: '6%' },
+    { icon: Wifi, delay: '3s', top: '75%', left: '9%' },
+  ];
+
+  // Right side floating icons
+  const rightSideIcons = [
+    { icon: Rocket, delay: '0.5s', top: '20%', right: '5%' },
+    { icon: Monitor, delay: '1.5s', top: '40%', right: '8%' },
+    { icon: Smartphone, delay: '2.5s', top: '60%', right: '6%' },
+    { icon: Cloud, delay: '3.5s', top: '80%', right: '9%' },
+  ];
+
   return (
     <section id="hero" className="section-transition gradient-bg">
+      {/* Left Side Floating Icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        {leftSideIcons.map((item, index) => {
+          const IconComponent = item.icon;
+          return (
+            <div
+              key={`left-${index}`}
+              className="absolute glass-effect p-4 rounded-full animate-float opacity-70 hover:opacity-100 transition-opacity duration-300"
+              style={{
+                top: item.top,
+                left: item.left,
+                animationDelay: item.delay,
+                animationDuration: '4s'
+              }}
+            >
+              <IconComponent className="w-6 h-6 text-cyber-400" />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Right Side Floating Icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        {rightSideIcons.map((item, index) => {
+          const IconComponent = item.icon;
+          return (
+            <div
+              key={`right-${index}`}
+              className="absolute glass-effect p-4 rounded-full animate-float opacity-70 hover:opacity-100 transition-opacity duration-300"
+              style={{
+                top: item.top,
+                right: item.right,
+                animationDelay: item.delay,
+                animationDuration: '4s'
+              }}
+            >
+              <IconComponent className="w-6 h-6 text-neon-green" />
+            </div>
+          );
+        })}
+      </div>
+
       <div className="container mx-auto px-6 text-center z-10 relative">
         <div className="animate-fade-in">
           <div className="mb-8 flex justify-center space-x-4">
