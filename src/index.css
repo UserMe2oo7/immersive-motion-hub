@@ -36,6 +36,36 @@
 
     --radius: 0.75rem;
   }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 220 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 3.9%;
+
+    --primary: 240 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220 10% 3.9%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 240 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 240 100% 50%;
+  }
 }
 
 @layer base {
@@ -89,6 +119,10 @@
 
   .glass-effect {
     @apply backdrop-blur-lg bg-white/5 border border-white/10;
+  }
+
+  .light .glass-effect {
+    @apply backdrop-blur-lg bg-black/5 border border-black/10;
   }
 
   .neon-glow {

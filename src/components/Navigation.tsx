@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Home, User, Briefcase, Mail, Code, FileText, Github } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,6 +66,9 @@ const Navigation = () => {
                 </button>
               );
             })}
+            <div className="border-l border-border/50 pl-4">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </nav>
@@ -99,6 +103,9 @@ const Navigation = () => {
                   </button>
                 );
               })}
+              <div className="border-t border-border/50 pt-2 mt-2 px-4 pb-2">
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         )}
