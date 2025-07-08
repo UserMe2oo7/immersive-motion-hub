@@ -1,21 +1,22 @@
 
 import { Moon, Sun } from 'lucide-react';
-import { Switch } from '@/components/ui/switch';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="flex items-center space-x-2">
-      <Sun className="h-4 w-4 text-yellow-500" />
-      <Switch
-        checked={theme === 'dark'}
-        onCheckedChange={toggleTheme}
-        aria-label="Toggle theme"
-      />
-      <Moon className="h-4 w-4 text-blue-400" />
-    </div>
+    <button
+      onClick={toggleTheme}
+      className="fixed top-6 right-6 z-50 glass-effect p-3 rounded-full transition-all duration-300 hover:scale-110"
+      aria-label="Toggle theme"
+    >
+      {theme === 'dark' ? (
+        <Sun className="h-5 w-5 text-yellow-500" />
+      ) : (
+        <Moon className="h-5 w-5 text-blue-400" />
+      )}
+    </button>
   );
 };
 
