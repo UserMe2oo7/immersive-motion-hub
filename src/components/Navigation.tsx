@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X, Home, User, Briefcase, Mail, Code, FileText, Github } from 'lucide-react';
 
@@ -77,24 +78,24 @@ const Navigation = () => {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
+        {/* Mobile Dropdown Menu */}
         {isOpen && (
-          <div className="fixed inset-0 z-40 bg-background/90 backdrop-blur-lg">
-            <div className="flex flex-col items-center justify-center h-full space-y-8">
-              {navItems.map((item, index) => {
+          <div className="fixed top-20 right-6 z-40 glass-effect rounded-lg shadow-lg min-w-48">
+            <div className="py-2">
+              {navItems.map((item) => {
                 const Icon = item.icon;
                 return (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`flex items-center space-x-4 px-6 py-3 rounded-full transition-all duration-300 animate-fade-in ${
+                    className={`w-full flex items-center space-x-3 px-4 py-3 text-left transition-all duration-200 hover:bg-secondary/50 ${
                       activeSection === item.id
-                        ? 'bg-primary text-primary-foreground'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+                        ? 'bg-primary/10 text-primary border-r-2 border-primary'
+                        : 'text-foreground'
                     }`}
-                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <Icon size={20} />
-                    <span className="text-lg font-medium">{item.label}</span>
+                    <Icon size={18} />
+                    <span className="text-sm font-medium">{item.label}</span>
                   </button>
                 );
               })}
