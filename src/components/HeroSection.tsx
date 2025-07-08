@@ -99,7 +99,7 @@ const HeroSection = () => {
     top: '90%',
     right: '9%'
   }];
-  return <section id="hero" className="section-transition gradient-bg relative overflow-hidden">
+  return <section id="hero" className="section-transition gradient-bg relative overflow-hidden py-0">
       {/* Left Side Floating Icons */}
       <div className="absolute inset-0 pointer-events-none">
         {leftSideIcons.map((item, index) => {
@@ -130,7 +130,7 @@ const HeroSection = () => {
       })}
       </div>
 
-      <div className="container mx-auto px-6 text-center z-10 relative min-h-screen flex flex-col justify-center">
+      <div className="container mx-auto text-center z-10 relative min-h-screen flex flex-col justify-center px-0">
         <div className="animate-fade-in mx-0 py-[103px]">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 font-space">
             <span className="text-gradient">Creative</span>
