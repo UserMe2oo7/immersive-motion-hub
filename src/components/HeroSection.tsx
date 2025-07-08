@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { ChevronDown, Code, Palette, Zap, Cpu, Globe, Rocket, Database, Wifi, Monitor, Smartphone, Cloud } from 'lucide-react';
+import { ChevronDown, Code2, Server, Cloud, Database, Terminal, Laptop, Globe, Workflow, GitBranch, Container, Cpu, Shield } from 'lucide-react';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -30,28 +30,36 @@ const HeroSection = () => {
     typeRole();
   }, [currentRoleIndex]);
 
+  const scrollToProjects = () => {
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Left side floating icons
+  // Left side floating icons - Full Stack & Web Development
   const leftSideIcons = [
-    { icon: Cpu, delay: '0s', top: '15%', left: '5%' },
-    { icon: Database, delay: '1s', top: '35%', left: '8%' },
-    { icon: Globe, delay: '2s', top: '55%', left: '6%' },
-    { icon: Wifi, delay: '3s', top: '75%', left: '9%' },
+    { icon: Code2, delay: '0s', top: '10%', left: '3%' },
+    { icon: Database, delay: '0.8s', top: '25%', left: '7%' },
+    { icon: Server, delay: '1.6s', top: '40%', left: '4%' },
+    { icon: Terminal, delay: '2.4s', top: '55%', left: '8%' },
+    { icon: Laptop, delay: '3.2s', top: '70%', left: '5%' },
+    { icon: Globe, delay: '4s', top: '85%', left: '9%' },
   ];
 
-  // Right side floating icons
+  // Right side floating icons - DevOps & Cloud Engineering
   const rightSideIcons = [
-    { icon: Rocket, delay: '0.5s', top: '20%', right: '5%' },
-    { icon: Monitor, delay: '1.5s', top: '40%', right: '8%' },
-    { icon: Smartphone, delay: '2.5s', top: '60%', right: '6%' },
-    { icon: Cloud, delay: '3.5s', top: '80%', right: '9%' },
+    { icon: Cloud, delay: '0.4s', top: '15%', right: '3%' },
+    { icon: Container, delay: '1.2s', top: '30%', right: '7%' },
+    { icon: Workflow, delay: '2s', top: '45%', right: '4%' },
+    { icon: GitBranch, delay: '2.8s', top: '60%', right: '8%' },
+    { icon: Shield, delay: '3.6s', top: '75%', right: '5%' },
+    { icon: Cpu, delay: '4.4s', top: '90%', right: '9%' },
   ];
 
   return (
-    <section id="hero" className="section-transition gradient-bg">
+    <section id="hero" className="section-transition gradient-bg relative overflow-hidden">
       {/* Left Side Floating Icons */}
       <div className="absolute inset-0 pointer-events-none">
         {leftSideIcons.map((item, index) => {
@@ -59,15 +67,15 @@ const HeroSection = () => {
           return (
             <div
               key={`left-${index}`}
-              className="absolute glass-effect p-4 rounded-full animate-float opacity-70 hover:opacity-100 transition-opacity duration-300"
+              className="absolute glass-effect p-3 rounded-full animate-float opacity-60 hover:opacity-100 transition-opacity duration-300"
               style={{
                 top: item.top,
                 left: item.left,
                 animationDelay: item.delay,
-                animationDuration: '4s'
+                animationDuration: '6s'
               }}
             >
-              <IconComponent className="w-6 h-6 text-cyber-400" />
+              <IconComponent className="w-5 h-5 text-cyber-400" />
             </div>
           );
         })}
@@ -80,34 +88,22 @@ const HeroSection = () => {
           return (
             <div
               key={`right-${index}`}
-              className="absolute glass-effect p-4 rounded-full animate-float opacity-70 hover:opacity-100 transition-opacity duration-300"
+              className="absolute glass-effect p-3 rounded-full animate-float opacity-60 hover:opacity-100 transition-opacity duration-300"
               style={{
                 top: item.top,
                 right: item.right,
                 animationDelay: item.delay,
-                animationDuration: '4s'
+                animationDuration: '6s'
               }}
             >
-              <IconComponent className="w-6 h-6 text-neon-green" />
+              <IconComponent className="w-5 h-5 text-neon-green" />
             </div>
           );
         })}
       </div>
 
-      <div className="container mx-auto px-6 text-center z-10 relative">
+      <div className="container mx-auto px-6 text-center z-10 relative min-h-screen flex flex-col justify-center">
         <div className="animate-fade-in">
-          <div className="mb-8 flex justify-center space-x-4">
-            <div className="glass-effect p-4 rounded-full animate-float">
-              <Code className="w-8 h-8 text-primary" />
-            </div>
-            <div className="glass-effect p-4 rounded-full animate-float animation-delay-200">
-              <Palette className="w-8 h-8 text-cyber-400" />
-            </div>
-            <div className="glass-effect p-4 rounded-full animate-float animation-delay-400">
-              <Zap className="w-8 h-8 text-neon-green" />
-            </div>
-          </div>
-          
           <h1 className="text-5xl md:text-7xl font-bold mb-6 font-space">
             <span className="text-gradient">Creative</span>
             <br />
@@ -121,9 +117,9 @@ const HeroSection = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-in-left animation-delay-600">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-in-left animation-delay-600">
             <button
-              onClick={scrollToAbout}
+              onClick={scrollToProjects}
               className="px-8 py-4 bg-primary hover:bg-primary/80 text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               Explore My Work
@@ -137,12 +133,14 @@ const HeroSection = () => {
           </div>
         </div>
         
-        <button
-          onClick={scrollToAbout}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-        >
-          <ChevronDown className="w-8 h-8 text-muted-foreground" />
-        </button>
+        <div className="mt-auto pb-8">
+          <button
+            onClick={scrollToAbout}
+            className="animate-bounce mx-auto block"
+          >
+            <ChevronDown className="w-8 h-8 text-muted-foreground" />
+          </button>
+        </div>
       </div>
     </section>
   );
