@@ -104,6 +104,17 @@
 @layer components {
   .section-transition {
     @apply min-h-screen flex flex-col justify-center items-center relative overflow-hidden py-20;
+    scroll-margin-top: 100px; /* Add scroll margin for smooth navigation */
+  }
+
+  /* Special handling for hero section - no top margin needed */
+  #hero.section-transition {
+    scroll-margin-top: 0;
+  }
+
+  /* All other sections need top padding to avoid collision with nav */
+  .section-transition:not(#hero) {
+    @apply pt-32;
   }
 
   .gradient-bg {
